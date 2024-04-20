@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "npm init",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/index.js",
     "dev": "nodemon index.ts",
     "lint": "eslint 'src/**/*.{js,ts}' --max-warnings=0",
-    "lint:fix": "eslint --fix 'src/**/*.{js,ts}'"
+    "lint:fix": "eslint --fix 'src/**/*.{js,ts}'",
+    "seed": "npx prisma db seed "
   },
   "author": "Mauricio Arroyave",
   "license": "ISC",
@@ -38,5 +40,8 @@
       "eslint --cache --fix",
       "prettier --write --ignore-unknown"
     ]
+  },
+  "prisma": {
+    "seed": "node ./prisma/seed.ts"
   }
 }
