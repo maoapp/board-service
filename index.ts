@@ -1,8 +1,11 @@
 import express, { Request } from 'express'
 import morgan from 'morgan'
+import { boardsController } from './src/routes/boardsControllers'
 
 const app = express()
 const port = process.env.PORT || 8000
+
+app.use(express.json())
 
 // Define custom format for logging
 morgan.token('custom', (req: Request) => {
@@ -20,6 +23,9 @@ app.use(morgan(':custom'))
 app.get('/health', (_req, res) => {
   res.status(200).send('Ok')
 })
+
+// Controllers
+app.use('/board', boardsController);
 
 app.listen(port, () => {
   console.log(`Server is Fire at http://localhost:${port}`)
