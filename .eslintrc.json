@@ -1,0 +1,47 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+  
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": "latest"
+    },
+  
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:promise/recommended",
+      "prettier"
+    ],
+    "settings": {
+      "node": {
+        "version": "detect"
+      }
+    },
+    "plugins": ["prettier", "promise", "@typescript-eslint"],
+    "rules": {
+      "import/no-unresolved": "off",
+      "no-multiple-empty-lines": [
+        "error",
+        { "max": 2, "maxEOF": 0, "maxBOF": 0 }
+      ],
+      "no-var": ["error"],
+      "no-empty-pattern": ["error"],
+      "object-curly-spacing": ["error", "always"],
+      "prettier/prettier": [
+        "warn",
+        {
+          "singleQuote": true,
+          "semi": false,
+          "object-curly-spacing": false
+        }
+      ]
+    }
+  }
