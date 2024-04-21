@@ -6,3 +6,4 @@
 - Database Model: Define data structure.
 - Board Service: Create GET, POST, PATCH functionalities.
 - Auth Service Integration: Validate tokens for board service.
+- Config to deploy

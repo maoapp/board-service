@@ -1,7 +1,7 @@
 import express, { Request } from 'express'
 import morgan from 'morgan'
-import { boardsController } from './src/routes/boardsControllers'
-import { authController } from './src/routes/authControllers'
+import { boardsController } from './routes/boardsControllers'
+import { authController } from './routes/authControllers'
 
 const app = express()
 const port = process.env.PORT || 8000
