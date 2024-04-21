@@ -6,9 +6,10 @@
   "private": true,
   "scripts": {
     "dev": "tsx watch --clear-screen=false src/index.ts | pino-pretty",
-    "build": "rimraf dist && tsup",
     "start": "node dist/index.js",
+    "migrate:deploy": "prisma migrate deploy",
     "clean": "rimraf dist coverage",
+    "build": "prisma migrate deploy && prisma generate && rimraf dist && tsup",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "format": "prettier --config .prettierrc --write .",
