@@ -8,8 +8,8 @@ async function main() {
   // Create users
   const user = await prisma.user.create({
     data: {
-      username: 'user1',
       email: 'user1@example.com',
+      password: 'test',
       tasks: {
         create: [
           {
@@ -27,8 +27,6 @@ async function main() {
       tasks: true // Include tasks in the created user object
     }
   });
-
-  console.log('Seed data created:', { user });
 }
 
 main()

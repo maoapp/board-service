@@ -1,6 +1,7 @@
 import express, { Request } from 'express'
 import morgan from 'morgan'
 import { boardsController } from './src/routes/boardsControllers'
+import { authController } from './src/routes/authControllers'
 
 const app = express()
 const port = process.env.PORT || 8000
@@ -26,6 +27,7 @@ app.get('/health', (_req, res) => {
 
 // Controllers
 app.use('/board', boardsController);
+app.use('/auth', authController);
 
 app.listen(port, () => {
   console.log(`Server is Fire at http://localhost:${port}`)
