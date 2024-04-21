@@ -1,12 +1,17 @@
 import express, { Request, Response } from 'express'
 import { PrismaClient } from '@prisma/client'
+import { RequestCustom } from '../../types';
 
 const prisma = new PrismaClient();
 
 export async function getTasksByUserHandler(req: Request, res: Response) {
     try {
-      const userId = parseInt(req.params.userId);
+      const userId = req.userId;
 
+      if (!userId) {
+        return res.status(401).json({ error: 'Unauthorized' });
+      }
+      
       const tasks = await prisma.task.findMany({
         where: {
           userId: userId

@@ -1,17 +1,20 @@
 import { Router } from 'express'
 import { getTasksByUserHandler } from '../handlers/getTasksByUserHandler'
-import { body, param, validateParams } from '../middleware/validateParams'
+import { body, validateParams } from '../middleware/validateParams'
 import { createTaskHandler } from '../handlers/createTaskHandler'
 import { updateTaskHandler } from '../handlers/updateTaskHandler'
+import { validateToken } from '../middleware/tokenValidation'
 
 // TODO Add auth token and remove user from params
 export const boardsController = Router()
   .get(
-    '/:userId',
+    '',
+    validateToken,
     getTasksByUserHandler,
   )
   .post(
-    '/:userId',
+    '',
+    validateToken,
     validateParams(
       [
         body('title').isString(),
@@ -23,5 +26,6 @@ export const boardsController = Router()
   )
   .patch(
     '/:userId/:taskId',
+    validateToken,
     updateTaskHandler,
   )
