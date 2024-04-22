@@ -10,6 +10,17 @@ export const createUserHandler = async (req: Request, res: Response) => {
   const { email, password } = req.body;
 
   try {
+      // Check if user already exists
+      const existingUser = await prisma.user.findUnique({
+        where: {
+          email,
+        },
+      });
+  
+      if (existingUser) {
+        return res.status(400).json({ error: 'User already exists' });
+      }
+      
     // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
