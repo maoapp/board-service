@@ -24,8 +24,9 @@ export const boardsController = Router()
     ),
     createTaskHandler,
   )
-  .patch(
-    '/:userId/:taskId',
+  //TODO Create a patch instead to improve performance operations
+  .put(
+    '/:taskId',
     validateToken,
     updateTaskHandler,
   )
