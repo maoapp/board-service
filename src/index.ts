@@ -2,11 +2,15 @@ import express, { Request } from 'express'
 import morgan from 'morgan'
 import { boardsController } from './routes/boardsControllers'
 import { authController } from './routes/authControllers'
+const cors = require('cors'); 
 
 const app = express()
 const port = process.env.PORT || 8000
 
+// Middlewares
 app.use(express.json())
+app.use(cors())
+
 
 // Define custom format for logging
 morgan.token('custom', (req: Request) => {
@@ -20,7 +24,22 @@ morgan.token('custom', (req: Request) => {
 // Use morgan middleware with the custom format
 app.use(morgan(':custom'))
 
-// Kube health endpoint
+// Enable CORS
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+if (req.method == "OPTIONS") {
+  res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+  return res.status(200).json({});
+}
+
+next();
+});
+
+// health endpoint
 app.get('/health', (_req, res) => {
   res.status(200).send('Ok')
 })
