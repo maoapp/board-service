@@ -19,6 +19,3 @@ export const authController = Router()
     '/login',
     loginUserHandler
   )
-
-const prisma = new PrismaClient();
-

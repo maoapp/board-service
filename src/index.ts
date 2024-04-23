@@ -1,5 +1,7 @@
 import express, { Request } from 'express'
 import morgan from 'morgan'
+import { getSwaggerOptions, initializeSwagger } from './swagger'
+
 import { boardsController } from './routes/boardsControllers'
 import { authController } from './routes/authControllers'
 const cors = require('cors'); 
@@ -48,6 +50,11 @@ app.get('/health', (_req, res) => {
 app.use('/board', boardsController);
 app.use('/auth', authController);
 
+
+// Configure Swagger with the provided options
+initializeSwagger(getSwaggerOptions(), app)
+
 app.listen(port, () => {
   console.log(`Server is Fire at http://localhost:${port}`)
 })
+
