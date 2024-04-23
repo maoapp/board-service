@@ -10,11 +10,16 @@ In terms of data management, I opted to leverage Prisma, a robust ORM solution. 
 
 The following tasks were completed in sequential order:
 
-- Project Setup: Establish project structure, config, dependencies.
+Project Setup: Establish project structure, config, dependencies. (initial commit)
+  
 [- Database Model: Define data structure.](https://github.com/maoapp/board-service/pull/1 "- Database Model: Define data structure.")
+
 [- Board Service: Create GET, POST, PATCH functionalities.](https://github.com/maoapp/board-service/pull/2 "- Board Service: Create GET, POST, PATCH functionalities.")
+
 [- Auth Service Integration: Validate tokens for board service.](https://github.com/maoapp/board-service/pull/4 "- Auth Service Integration: Validate tokens for board service.")
+
 [- Config to deploy](https://github.com/maoapp/board-service/pull/6 "- Config to deploy")
+
 [- Plus: Add docs](https://github.com/maoapp/board-service/pull/10 "- Plus: Add docs")
 
 ### Development Tasks Pending
