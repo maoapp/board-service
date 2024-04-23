@@ -14,7 +14,7 @@ export const getSwaggerOptions = (): swaggerJSDoc.Options => ({
     },
     servers: [
       {
-        url: "https://board-service.onrender.com/board"
+        url: "https://board-service.onrender.com"
       }
     ],
   },
